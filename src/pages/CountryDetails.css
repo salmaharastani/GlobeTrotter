@@ -1,0 +1,793 @@
+
+/* Country details page */
+
+.details-page {
+  min-height: 100vh;
+  padding: 40px 24px 70px;
+  background: linear-gradient(180deg, #edf5ff 0%, #f8fafc 45%, #ffffff 100%);
+  color: #172033;
+}
+
+.details-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 30px;
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.details-back:hover {
+  color: #1d4ed8;
+  transform: translateX(-3px);
+}
+
+
+.details-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(30, 64, 175, 0.08);
+}
+
+.details-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.details-flag {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 28px;
+  border-radius: 12px;
+}
+
+.details-region {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.details-title {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.details-subtitle {
+  margin: 14px 0 0;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.details-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 125px;
+  padding: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.details-item:hover {
+  transform: translateY(-3px);
+  border-color: #bfdbfe;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08);
+}
+
+.details-item span {
+  margin-bottom: 12px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.details-item strong {
+  color: #172033;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.details-status {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 28px;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+@media (max-width: 600px) {
+  .details-page {
+    padding: 24px 14px 40px;
+  }
+
+  .details-back {
+    margin-bottom: 22px;
+  }
+
+  .details-card {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+
+  .details-header {
+    margin-bottom: 28px;
+  }
+
+  .details-flag {
+    max-width: 190px;
+    height: 120px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .details-item {
+    min-height: 100px;
+    padding: 20px;
+  }
+}
+
+
+/* Fix layout and text visibility */
+
+.details-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.details-page *,
+.details-page *::before,
+.details-page *::after {
+  box-sizing: border-box;
+}
+
+.details-card {
+  width: 100%;
+  max-width: 900px;
+  min-width: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.details-title {
+  color: #172033 !important;
+  opacity: 1;
+}
+
+.details-region {
+  color: #2563eb;
+}
+
+.details-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+.details-item {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.details-back {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.details-back:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .details-card {
+    padding: 24px 16px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.details-title {
+  color: #172033 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin: 12px 0 28px;
+}
+/* Extra information om landet */
+.details-extra {
+  margin-top: 16px;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  text-align: left;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.details-extra:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 6px 18px rgba(40, 120, 199, 0.08);
+}
+
+.details-extra h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.details-extra p {
+  margin: 0;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.map-button {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: #2878c7;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.map-button:hover {
+  background: #1d5fa3;
+  transform: translateY(-2px);
+}
+
+.map-button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+
+
+/* Huvudbilden på landets detaljsida */
+.country-details .country-image,
+.country-details .landmark-image,
+.country-details .country-details-image {
+  width: 100%;
+  max-width: 700px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  margin: 16px auto;
+  border-radius: 14px;
+}
+
+/* Bilden i informationsrutan */
+.country-details .about-country img {
+  width: 100%;
+  max-width: 700px;
+  max-height: 350px;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* Anpassning för mobil */
+@media (max-width: 768px) {
+  .country-details .country-image,
+  .country-details .landmark-image,
+  .country-details .country-details-image,
+  .country-details .about-country img {
+    width: 100%;
+    max-width: 100%;
+    height: 240px;
+    margin: 12px 0;
+  }
+
+
+/* Anpassa bilder på landets detaljsida */
+.about-country img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  margin: 12px auto;
+  box-sizing: border-box;
+}
+
+/* Se till att informationsrutan inte blir för bred */
+.about-country {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Anpassa bilden för mindre skärmar */
+@media (max-width: 768px) {
+  .about-country img {
+    height: 230px;
+  }
+}
+
+/* Bilden under About [landets namn] */
+.wikipedia-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.wikipedia-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  margin: 12px 0 18px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* Anpassning för mobil */
+@media (max-width: 600px) {
+  .wikipedia-image {
+    height: 220px;
+  }
+
+  .wikipedia-card {
+    padding: 16px;
+  }
+}
+
+
+
+}
+
+/* =========================================
+   GlobeTrotter — Premium country details
+   ========================================= */
+
+.details-page {
+  min-height: 100vh;
+  padding: 32px 24px 70px;
+  background:
+    radial-gradient(
+      ellipse at 5% 0%,
+      rgba(74, 181, 190, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(180deg, #f3f8f8 0%, #f8fafc 100%);
+}
+
+.details-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 24px;
+  padding: 11px 17px;
+  border: 1px solid #e1eceb;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #087f8c;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.details-back:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 6px 18px rgba(23, 65, 72, 0.08);
+}
+
+/* Main country panel */
+
+.details-card {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid rgba(223, 235, 235, 0.9);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 22px 65px rgba(31, 65, 72, 0.08);
+}
+
+/* Country heading */
+
+.details-flag {
+  width: 100px;
+  height: 68px;
+  margin: 0 auto 20px;
+  padding: 5px;
+  border: 1px solid #e4ecec;
+  border-radius: 12px;
+  background: white;
+  object-fit: contain;
+  box-shadow: 0 8px 22px rgba(23, 43, 58, 0.1);
+}
+
+.details-region {
+  margin: 0 0 10px;
+  color: #087f8c;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.details-title {
+  margin: 0 0 12px;
+  color: #183747 !important;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.details-native-name {
+  margin: 0 0 30px;
+  color: #758993;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Country statistics */
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.details-item {
+  min-width: 0;
+  min-height: 120px;
+  padding: 23px;
+  border: 1px solid #e3eeee;
+  border-radius: 19px;
+  background: linear-gradient(145deg, #f8fcfb, #f0f7f6);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.details-item:hover {
+  transform: translateY(-4px);
+  border-color: #b9e2dc;
+  box-shadow: 0 12px 28px rgba(31, 91, 89, 0.08);
+}
+
+.details-item span {
+  margin-bottom: 12px;
+  color: #71878e;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.details-item strong {
+  color: #183747;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* Extra information panels */
+
+.details-extra {
+  margin-top: 20px;
+  padding: 24px;
+  border: 1px solid #e4eded;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(31, 65, 72, 0.035);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.details-extra:hover {
+  border-color: #c5e3de;
+  box-shadow: 0 10px 28px rgba(31, 65, 72, 0.07);
+}
+
+.details-extra h2 {
+  margin: 0 0 13px;
+  color: #183747;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.details-extra p {
+  color: #617780;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Weather panel */
+
+.details-extra:has(h2:first-child) {
+  scroll-margin-top: 24px;
+}
+
+/* Wikipedia image */
+
+.wikipedia-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 400px;
+  margin: 18px 0;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Links and buttons */
+
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 13px 19px;
+  border: none;
+  border-radius: 12px;
+  background: #087f8c;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.map-button:hover {
+  transform: translateY(-2px);
+  background: #05636e;
+}
+
+.wikipedia-card a:not(.map-button) {
+  display: inline-block;
+  margin-top: 15px;
+  color: #087f8c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wikipedia-card a:not(.map-button):hover {
+  text-decoration: underline;
+}
+
+/* Loading and error states */
+
+.details-status {
+  max-width: 600px;
+  margin: 70px auto;
+  padding: 28px;
+  border: 1px solid #e1eceb;
+  border-radius: 18px;
+  background: white;
+  color: #617780;
+  text-align: center;
+}
+
+/* Responsive layout */
+
+@media (max-width: 600px) {
+  .details-page {
+    padding: 22px 14px 40px;
+  }
+
+  .details-card {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .details-item {
+    min-height: 100px;
+    padding: 20px;
+  }
+
+  .details-extra {
+    padding: 19px;
+  }
+
+  .details-title {
+    font-size: 35px;
+  }
+
+  .details-flag {
+    width: 85px;
+    height: 58px;
+  }
+}
+
+/* Improve readability on the country details page */
+
+.details-page {
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(8, 127, 140, 0.09),
+      transparent 40%
+    ),
+    #f3f7f8;
+}
+
+.details-card {
+  padding: 36px;
+  border: 1px solid #e0eaea;
+  border-radius: 26px;
+  background: #ffffff;
+  box-shadow: 0 20px 55px rgba(24, 55, 71, 0.08);
+}
+
+.details-title {
+  color: #183747 !important;
+}
+
+.details-item {
+  background: linear-gradient(135deg, #f5faf9, #edf6f5);
+  border: 1px solid #deece9;
+}
+
+.details-item span {
+  color: #607983;
+}
+
+.details-item strong {
+  color: #183747;
+}
+
+.details-extra {
+  background: #ffffff;
+  border: 1px solid #e0eaea;
+}
+
+.details-extra h2 {
+  color: #183747;
+}
+
+.details-extra p {
+  color: #526b76;
+}
+
+.details-region {
+  color: #087f8c;
+}
+
+.details-back {
+  color: #087f8c;
+}
+
+.wikipedia-card a:not(.map-button) {
+  color: #087f8c;
+}
+
+@media (max-width: 600px) {
+  .details-card {
+    padding: 22px 16px;
+  }
+}
+
+
+/* Destination hero on country details */
+
+.country-detail-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 350px;
+  margin-bottom: 30px;
+  padding: 35px 24px;
+  overflow: hidden;
+  border-radius: 22px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.country-detail-hero .details-flag {
+  width: 72px;
+  height: 48px;
+  margin: 0 0 18px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.country-detail-hero .details-region {
+  margin-bottom: 10px;
+  color: #c1fff1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.country-detail-hero .details-title {
+  margin: 0;
+  color: #ffffff !important;
+  font-size: clamp(34px, 5vw, 56px);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
+}
+
+.country-detail-hero .details-native-name {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 600px) {
+  .country-detail-hero {
+    min-height: 290px;
+    padding: 26px 16px;
+    border-radius: 18px;
+  }
+}
