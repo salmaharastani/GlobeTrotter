@@ -383,15 +383,45 @@ function NotFound() {
     </div>
   )
 }
+
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const savedTheme = localStorage.getItem('globetrotter-theme')
+    return savedTheme === 'dark' ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('globetrotter-theme', theme)
+  }, [theme])
+
   return (
-    <Routes>
-      <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<HomePage />} />
-      <Route path="/favorites" element={<Favorites />} />
-      <Route path="/country/:code" element={<CountryDetails />} />
-    </Routes>
+    <div className="app" data-theme={theme}>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={() =>
+          setTheme((currentTheme) =>
+            currentTheme === 'light' ? 'dark' : 'light'
+          )
+        }
+        aria-label={
+          theme === 'light' ? 'Aktivera mörkt läge' : 'Aktivera ljust läge'
+        }
+      >
+        {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      </button>
+
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/country/:code" element={<CountryDetails />} />
+      </Routes>
+    </div>
   )
 }
+
+
 
 export default App

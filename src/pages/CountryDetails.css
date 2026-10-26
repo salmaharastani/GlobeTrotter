@@ -791,3 +791,67 @@
     border-radius: 18px;
   }
 }
+
+/* Dark mode for country details */
+
+:root[data-theme='dark'] .details-page {
+  background: #0b1120;
+  color: #e5e7eb;
+}
+
+:root[data-theme='dark'] .details-card {
+  background: #111827;
+  border-color: #263449;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+}
+
+:root[data-theme='dark'] .details-item {
+  background: linear-gradient(135deg, #1e293b, #172033);
+  border-color: #334155;
+}
+
+:root[data-theme='dark'] .details-item span {
+  color: #a5b4c8;
+}
+
+:root[data-theme='dark'] .details-item strong {
+  color: #f3f4f6;
+}
+
+:root[data-theme='dark'] .details-extra {
+  background: #172033;
+  border-color: #334155;
+  box-shadow: none;
+}
+
+:root[data-theme='dark'] .details-extra h2 {
+  color: #f3f4f6;
+}
+
+:root[data-theme='dark'] .details-extra p {
+  color: #cbd5e1;
+}
+
+:root[data-theme='dark'] .details-native-name {
+  color: #cbd5e1;
+}
+
+:root[data-theme='dark'] .details-back {
+  background: #172033;
+  border-color: #334155;
+  color: #67e8f9;
+}
+
+:root[data-theme='dark'] .details-region {
+  color: #67e8f9;
+}
+
+:root[data-theme='dark'] .details-status {
+  background: #172033;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+:root[data-theme='dark'] .wikipedia-card a:not(.map-button) {
+  color: #67e8f9;
+}

@@ -1339,3 +1339,59 @@ body {
   }
 }
 
+
+/* Theme colors */
+:root,
+:root[data-theme='light'] {
+  --theme-background: #f5f7fb;
+  --theme-surface: #ffffff;
+  --theme-text: #1f2937;
+  --theme-border: #e5e7eb;
+}
+
+:root[data-theme='dark'] {
+  --theme-background: #111827;
+  --theme-surface: #1f2937;
+  --theme-text: #f9fafb;
+  --theme-border: #374151;
+}
+
+/* Apply theme */
+html,
+body,
+#root,
+.app {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.app {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Theme button */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  padding: 10px 14px;
+  border: 1px solid var(--theme-border);
+  border-radius: 10px;
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.theme-toggle:hover {
+  opacity: 0.85;
+}
+
