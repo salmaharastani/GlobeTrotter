@@ -88,6 +88,7 @@ function HomePage() {
     })
   }
   const search = searchParams.get('query') || ''
+  const sortBy = searchParams.get('sort') || 'name-asc'
   const selectedRegion = searchParams.get('region') || 'All'
   const page = Math.max(
     1,
@@ -142,6 +143,7 @@ function HomePage() {
   })
 
   const filteredCountries = countries.filter((country: Country) => {
+    
     const matchesSearch = country.name
       .toLowerCase()
       .includes(search.toLowerCase())
@@ -151,20 +153,32 @@ function HomePage() {
 
     return matchesSearch && matchesRegion
   })
+const sortedCountries = [...filteredCountries].sort((a, b) => {
+  switch (sortBy) {
+    case 'name-desc':
+      return b.name.localeCompare(a.name)
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredCountries.length / COUNTRIES_PER_PAGE),
-  )
+    case 'population-desc':
+      return b.population - a.population
+
+    case 'population-asc':
+      return a.population - b.population
+
+    default:
+      return a.name.localeCompare(b.name)
+  }
+})
+ const totalPages = Math.max(
+  1,
+  Math.ceil(sortedCountries.length / COUNTRIES_PER_PAGE)
+)
 
   const currentPage = Math.min(page, totalPages)
+const visibleCountries = sortedCountries.slice(
+  (currentPage - 1) * COUNTRIES_PER_PAGE,
+  currentPage * COUNTRIES_PER_PAGE
+)
 
-  
-
-  const visibleCountries = filteredCountries.slice(
-    (currentPage - 1) * COUNTRIES_PER_PAGE,
-    currentPage * COUNTRIES_PER_PAGE,
-  )
 
  function handleSearch(value: string) {
   updateURL({
