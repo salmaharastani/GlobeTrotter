@@ -30,3 +30,10 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+## Favorites feature
+
+Users can add countries to their favorites and remove them later.
+Favorites are saved in localStorage, so they remain available after reloading the page.
+
+Project feature: Country favorites saved in localStorage.
