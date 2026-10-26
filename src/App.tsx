@@ -100,8 +100,11 @@ function HomePage() {
       query?: string
       region?: string
       page?: number
+      sort?: string
     }
+    
   ) {
+    
     const params = new URLSearchParams(searchParams)
 
     if (updates.query !== undefined) {
@@ -127,6 +130,13 @@ function HomePage() {
         params.set('page', String(updates.page))
       }
     }
+if (updates.sort !== undefined) {
+if (updates.sort === 'name-asc') {
+params.delete('sort')
+} else {
+params.set('sort', updates.sort)
+}
+}
 
     setSearchParams(params)
   }
@@ -259,6 +269,24 @@ const visibleCountries = sortedCountries.slice(
               ),
             )}
           </div>
+<div className="sort-container">
+  <label htmlFor="country-sort">Sort countries by:</label>
+  <select
+    id="country-sort"
+    value={sortBy}
+    onChange={(event) =>
+      updateURL({
+        sort: event.target.value,
+        page: 1,
+      })
+    }
+  >
+    <option value="name-asc">Name (A–Z)</option>
+    <option value="name-desc">Name (Z–A)</option>
+    <option value="population-desc">Population (highest first)</option>
+    <option value="population-asc">Population (lowest first)</option>
+  </select>
+</div>
 
           {isLoading && (
             <p className="status-message" role="status">
