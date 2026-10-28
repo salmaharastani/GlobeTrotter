@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Link, Routes, Route, useSearchParams } from 'react-router-dom'
+import { Link, Routes, Route, useSearchParams, useLocation } from 'react-router-dom'
 import { getCountries } from './api/countries'
 import type { Country } from './api/countries'
 import CountryDetails from './pages/CountryDetails'
 import { getWikipediaInfo } from './api/wikipedia'
 import './App.css'
 import Favorites from './pages/Favorites'
+import CountryComparison from './pages/CountryComparison'
 
 function CountryImage({
   countryName,
@@ -63,7 +64,16 @@ const COUNTRIES_PER_PAGE = 12
 
 function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams()
+const location = useLocation()
 
+useEffect(() => {
+  if (location.hash === '#countries-section') {
+    document.getElementById('countries-section')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+}, [location.hash])
     const [favorites, setFavorites] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('globetrotter-favorites')
@@ -212,8 +222,13 @@ const visibleCountries = sortedCountries.slice(
   </Link>
 
   <div className="navbar-actions">
-    <span className="nav-label">Discover the world</span>
-    <Link className="favorites-nav-link" to="/favorites">
+<Link className="nav-label" to="/#countries-section">
+  Discover the world
+</Link>  
+<Link className="favorites-nav-link" to="/compare">
+  ⚖️ Compare Countries
+</Link>
+  <Link className="favorites-nav-link" to="/favorites">
       ♥ My Favorites
     </Link>
   </div>
@@ -240,8 +255,8 @@ const visibleCountries = sortedCountries.slice(
             onChange={(event) => handleSearch(event.target.value)}
           />
         </section>
-
-        <section className="countries-section">
+        
+          <section className="countries-section" id="countries-section">
           <div className="section-heading">
             <div>
               <p className="eyebrow">EXPLORE</p>
@@ -459,6 +474,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/country/:code" element={<CountryDetails />} />
+      <Route path="/compare" element={<CountryComparison />} />
       </Routes>
     </div>
   )
