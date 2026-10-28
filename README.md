@@ -36,6 +36,10 @@ GlobeTrotter is a travel application built with React, TypeScript and Vite. It a
 * REST APIs
 * localStorage
 
+### Framework Choice
+
+I chose React because it makes it easier to build a user interface using reusable components. I used TypeScript to make the code more structured and help detect errors. I chose Vite because it provides a simple and fast development environment.
+
 ## APIs
 
 GlobeTrotter uses external APIs to retrieve country information, weather data and introductory information.
@@ -103,9 +107,13 @@ Through this project, I practised building a web application with React, TypeScr
 
 One important part of the project was learning how different features work together, including country search, filtering, pagination, favorites and country comparison. The project also helped me understand the importance of testing the application and documenting its functionality.
 
+### Reflection
+
+The project went well, and I successfully implemented features such as country search, filtering, sorting, favorites and country comparison. The most challenging part was making the different features work together and fixing navigation problems when deploying the application. Next time, I would plan the structure more carefully and test each feature earlier in the development process. I also gained experience with React, TypeScript, APIs, Git branches and pull requests.
+
 ## Deployment
 
-The application will be deployed using Vercel.
+The application is deployed using Vercel. 
 
 **Public URL:** https://globe-trotter-sandy.vercel.app
 
