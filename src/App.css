@@ -1397,59 +1397,78 @@ body {
 
 /* Country sorting */
 .sort-container {
-display: flex;
-align-items: center;
-justify-content: flex-end;
-gap: 12px;
-margin: 22px 0 18px;
-padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 22px 0 18px;
+  padding: 0 4px;
 }
 
 .sort-container label {
-color: #b8c9e5;
-font-size: 0.9rem;
-font-weight: 600;
+  color: #b8c9e5;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .sort-container select {
-min-width: 220px;
-padding: 12px 40px 12px 16px;
-border: 1px solid #405574;
-border-radius: 12px;
-background-color: #17243b;
-color: #ffffff;
-font: inherit;
-font-size: 0.9rem;
-font-weight: 600;
-cursor: pointer;
-outline: none;
-transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 220px;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid #405574;
+  border-radius: 14px;
+  background-color: #17243a;
+  color: #f5f8ff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .sort-container select:hover {
-border-color: #19d5e5;
+  border-color: #16d9e8;
 }
 
 .sort-container select:focus-visible {
-border-color: #19d5e5;
-box-shadow: 0 0 0 3px rgb(25 213 229 / 20%);
+  border-color: #16d9e8;
+  box-shadow: 0 0 0 3px rgba(22, 217, 232, 0.2);
 }
 
 .sort-container select option {
-background-color: #17243b;
-color: #ffffff;
+  background-color: #17243a;
+  color: #f5f8ff;
+}
+
+/* Light mode */
+[data-theme='light'] .sort-container label {
+  color: #405574;
+}
+
+[data-theme='light'] .sort-container select {
+  background-color: #ffffff;
+  color: #263957;
+  border-color: #d5dfec;
+}
+
+[data-theme='light'] .sort-container select option {
+  background-color: #ffffff;
+  color: #263957;
 }
 
 @media (max-width: 600px) {
-.sort-container {
-align-items: stretch;
-flex-direction: column;
-gap: 8px;
-margin-top: 18px;
-}
+  .sort-container {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 18px;
+  }
 
-.sort-container select {
-width: 100%;
-min-width: 0;
-}
+  .sort-container select {
+    width: 100%;
+    min-width: 0;
+  }
 }
