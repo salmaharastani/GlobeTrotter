@@ -1472,3 +1472,103 @@ body {
     min-width: 0;
   }
 }
+/* Consistent navbar links */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-actions .nav-label,
+.navbar-actions .favorites-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--text-color, #ffffff);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-actions .nav-label:hover,
+.navbar-actions .favorites-nav-link:hover {
+  background: rgba(34, 211, 238, 0.12);
+  border-color: #22d3ee;
+}
+
+
+/* Consistent navigation links */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.navbar-actions .nav-label,
+.navbar-actions .favorites-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color, #405574);
+  border-radius: 999px;
+  color: #263650;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-actions .nav-label:hover,
+.navbar-actions .favorites-nav-link:hover {
+  background-color: rgba(34, 211, 238, 0.12);
+  border-color: #22d3ee;
+}
+
+.navbar-actions .nav-label:focus-visible,
+.navbar-actions .favorites-nav-link:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar-actions {
+    justify-content: center;
+    width: 100%;
+  }
+}
+.navbar-actions .nav-label,
+.navbar-actions .favorites-nav-link {
+  background-color: #ffffff;
+  color: #263650;
+  font-weight: 700;
+  opacity: 1;
+}
+/* Make navigation text readable in light mode */
+.light-mode .compare-nav-link,
+.light-mode .navbar-actions a {
+  color: #263650;
+  opacity: 1;
+  font-weight: 700;
+  text-shadow: none;
+}
